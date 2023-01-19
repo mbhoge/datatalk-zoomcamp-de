@@ -1,0 +1,4 @@
+Host dezoomcamp-1
+        HostName 35.244.13.12
+        User decloud
+        IdentityFile /.ssh/mb_gcloud
