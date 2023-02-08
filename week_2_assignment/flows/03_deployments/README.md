@@ -1,4 +1,5 @@
 ## Transcript for Video 5
+![image](https://user-images.githubusercontent.com/988040/217627673-9596891d-d39d-4fde-b830-6c6937e5c083.png)
 
 Hi all! Today we’re going to be going over how to add Parameterization to your flows and create deployments. We’re going to be expanding on the etl_web_to_gsc.py so let’s go ahead and create a new file called parameterized_flow.py. If you’re following along with the github you can see this is the flows/03_deployments folder. 
 And as a reminder this is building upon the existing flow and blocks that we can configured so if you haven’t already configured the GCS Bucket block, go back and make sure you do that first. 
