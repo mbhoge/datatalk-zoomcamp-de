@@ -1,8 +1,4 @@
 ## Transcript for Video 5
-![image](https://user-images.githubusercontent.com/988040/217627673-9596891d-d39d-4fde-b830-6c6937e5c083.png)
-
-Hi all! Today we’re going to be going over how to add Parameterization to your flows and create deployments. We’re going to be expanding on the etl_web_to_gsc.py so let’s go ahead and create a new file called parameterized_flow.py. If you’re following along with the github you can see this is the flows/03_deployments folder. 
-And as a reminder this is building upon the existing flow and blocks that we can configured so if you haven’t already configured the GCS Bucket block, go back and make sure you do that first. 
 
 So to start, let’s allow our flow to take parameters of year, month, and color:
 
@@ -54,6 +50,13 @@ Now you can see it created a yaml file with all our details. This is the metadat
 Now we need to apply the deployment: `prefect deployment apply etl_parent_flow-deployment.yaml`
 
 Here we can see the deployment in the UI, trigger a flow run, and you’ll notice this goes to late. That is because we are now using the API to trigger and schedule flow runs with this deployment instead of manually and we need to have an agent living in our execution environment (local) 
+
+Below is the snapshot of the Prefect flow deployment
+
+![image](https://user-images.githubusercontent.com/988040/217627673-9596891d-d39d-4fde-b830-6c6937e5c083.png)
+
+Link of Slack notification when the job ran from the Prefect UI
+https://temp-notify.slack.com/archives/C04NPH686M9/p1675881176525779
 
 
 
