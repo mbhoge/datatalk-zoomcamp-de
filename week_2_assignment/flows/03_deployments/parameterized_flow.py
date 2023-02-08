@@ -18,8 +18,8 @@ def fetch(dataset_url: str) -> pd.DataFrame:
 @task(log_prints=True)
 def clean(df: pd.DataFrame) -> pd.DataFrame:
     """Fix dtype issues"""
-    df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"])
-    df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"])
+    df["lpep_pickup_datetime"] = pd.to_datetime(df["lpep_pickup_datetime"])
+    df["lpep_dropoff_datetime"] = pd.to_datetime(df["lpep_dropoff_datetime"])
     print(df.head(2))
     print(f"columns: {df.dtypes}")
     print(f"rows: {len(df)}")
@@ -76,7 +76,8 @@ def write_bq(df: pd.DataFrame) -> None:
     gcp_credentials_block = GcpCredentials.load("block01")
 
     df.to_gbq(
-        destination_table="yellowtaxi.yellowtaxidataset",
+        # destination_table="yellowtaxi.yellowtaxidataset",
+        destination_table="tripdatazoomcamp1.tripdata",
         project_id="ancient-folio-347808",
         credentials=gcp_credentials_block.get_credentials_from_service_account(),
         chunksize=500_000,
@@ -96,16 +97,16 @@ def etl_gcs_to_bq(year: int, month: int, color: str):
 
 
 @flow()
-def etl_parent_flow(
-    months: list[int] = [2, 3], year: int = 2019, color: str = "yellow"
-):
-    for month in months:
-        etl_web_to_gcs(year, month, color)
-        etl_gcs_to_bq(year, month, color)
+def etl_parent_flow(months: int = 4 , year: int = 2019, color: str = "green"):
+    etl_web_to_gcs(year, months, color)
+    etl_gcs_to_bq(year, months, color)
+    #for month in months:
+    #    etl_web_to_gcs(year, month, color)
+    #    etl_gcs_to_bq(year, month, color)
 
 
 if __name__ == "__main__":
-    color = "yellow"
-    months = [2, 3]
+    color = "green"
+    months = 4
     year = 2019
     etl_parent_flow(months, year, color)
