@@ -2,7 +2,11 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
+<<<<<<< HEAD
+name: 'ny_taxi_data'
+=======
 name: 'my_new_project'
+>>>>>>> bb51ea78f29733f2fd5b2fa9f3b56f52d67cdbfe
 version: '1.0.0'
 config-version: 2
 
