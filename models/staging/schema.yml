@@ -1,0 +1,10 @@
+version 2
+sources:
+    - name: staging
+    - database: ancient-folio-347808
+    - schema: taxi_trip_data_all
+    - version: 2
+    
+      tables:
+        - name: green_taxi_trip_data
+        - name: green_taxi_trip_data
