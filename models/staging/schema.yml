@@ -7,3 +7,4 @@ sources:
 
       tables:
         - name: green_taxi_trip_data
+        - name: yellow_taxi_trip_data
